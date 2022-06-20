@@ -18,6 +18,19 @@ use yii\web\Response;
 class SongController extends Controller
 {
     /**
+     * List of allowed domains.
+     * Note: Restriction works only for AJAX (using CORS, is not secure).
+     *
+     * @return array List of domains, that can access to this API
+     */
+    public static function allowedDomains()
+    {
+        return [
+            // '*',                        // star allows all domains
+            'http://localhost:3000',
+        ];
+    }
+    /**
      * @inheritDoc
      */
     public function behaviors()
@@ -29,6 +42,17 @@ class SongController extends Controller
                     'class' => VerbFilter::className(),
                     'actions' => [
                         'delete' => ['POST'],
+                    ],
+                ],
+                // For cross-domain AJAX request
+                'corsFilter'  => [
+                    'class' => \yii\filters\Cors::className(),
+                    'cors'  => [
+                        // restrict access to domains:
+                        'Origin'                           => static::allowedDomains(),
+                        'Access-Control-Request-Method'    => ['GET'],
+                        'Access-Control-Allow-Credentials' => true,
+                        'Access-Control-Max-Age'           => 3600, // Cache (seconds)
                     ],
                 ],
             ]
