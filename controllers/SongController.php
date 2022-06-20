@@ -2,6 +2,7 @@
 
 namespace app\controllers;
 
+use Yii;
 use app\models\Song;
 use app\models\SongSearch;
 use yii\web\Controller;
@@ -126,6 +127,12 @@ class SongController extends Controller
      */
     public function actionCreate()
     {
+        if (Yii::$app->user->isGuest) {
+            $this->response->statusCode = 403;
+            $this->response->statusText = "Must be logged in to delete a song!";
+            return $this->response;
+        }
+
         $model = new Song();
 
         if ($this->request->isPost) {
@@ -150,6 +157,12 @@ class SongController extends Controller
      */
     public function actionUpdate($id)
     {
+        if (Yii::$app->user->isGuest) {
+            $this->response->statusCode = 403;
+            $this->response->statusText = "Must be logged in to delete a song!";
+            return $this->response;
+        }
+
         $model = $this->findModel($id);
 
         if ($this->request->isPost && $model->load($this->request->post()) && $model->save()) {
@@ -170,6 +183,12 @@ class SongController extends Controller
      */
     public function actionDelete($id)
     {
+        if (Yii::$app->user->isGuest) {
+            $this->response->statusCode = 403;
+            $this->response->statusText = "Must be logged in to delete a song!";
+            return $this->response;
+        }
+
         $this->findModel($id)->delete();
 
         return $this->redirect(['index']);
