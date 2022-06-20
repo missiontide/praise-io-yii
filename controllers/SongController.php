@@ -4,13 +4,10 @@ namespace app\controllers;
 
 use app\models\Song;
 use app\models\SongSearch;
-use yii\db\JsonExpression;
-use yii\helpers\Json;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use yii\data\ActiveDataProvider;
-use yii\web\Response;
 
 /**
  * SongController implements the CRUD actions for Song model.
