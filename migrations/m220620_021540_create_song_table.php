@@ -14,9 +14,9 @@ class m220620_021540_create_song_table extends Migration
     {
         $this->createTable('{{%song}}', [
             'id' => $this->primaryKey(),
-            'title' => $this->string(),
-            'artist' => $this->string(),
-            'lyrics' => $this->json(),
+            'title' => $this->string()->notNull(),
+            'artist' => $this->string()->notNull(),
+            'lyrics' => $this->json()->notNull(),
         ]);
     }
 
