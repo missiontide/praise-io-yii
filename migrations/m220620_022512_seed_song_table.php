@@ -24,7 +24,7 @@ class m220620_022512_seed_song_table extends Migration
                 [
                     'title' => $faker->name,
                     'artist' => $faker->name,
-                    'lyrics' => json_encode(['lyrics' => [$faker->sentence, $faker->sentence, $faker->sentence]]),
+                    'lyrics' => json_encode([$faker->sentence, $faker->sentence, $faker->sentence]),
                 ]
             );
         }
@@ -35,9 +35,9 @@ class m220620_022512_seed_song_table extends Migration
      */
     public function safeDown()
     {
-        echo "m220620_022512_seed_song_table cannot be reverted.\n";
+        echo "no rows deleted.\n";
 
-        return false;
+        return true;
     }
 
     /*
