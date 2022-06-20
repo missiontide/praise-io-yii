@@ -18,7 +18,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
-        <?= Html::a('Create Song', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= !Yii::$app->user->isGuest ? Html::a('Create Song', ['create'], ['class' => 'btn btn-success']) : '' ?>
     </p>
 
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
@@ -37,7 +37,8 @@ $this->params['breadcrumbs'][] = $this->title;
                 'class' => ActionColumn::className(),
                 'urlCreator' => function ($action, Song $model, $key, $index, $column) {
                     return Url::toRoute([$action, 'id' => $model->id]);
-                 }
+                 },
+                 'template' => !Yii::$app->user->isGuest ? '{view} {update} {delete}' : '{view}',
             ],
         ],
     ]); ?>
