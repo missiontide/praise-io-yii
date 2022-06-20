@@ -2,7 +2,7 @@
 
 return [
     'class' => 'yii\db\Connection',
-    'dsn' => 'mysql:host=localhost;dbname=praise-io',
+    'dsn' => env('DB_DSN'),
     'username' => 'root',
     'password' => '',
     'charset' => 'utf8',
