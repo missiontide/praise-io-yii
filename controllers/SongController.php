@@ -4,10 +4,13 @@ namespace app\controllers;
 
 use app\models\Song;
 use app\models\SongSearch;
+use yii\db\JsonExpression;
+use yii\helpers\Json;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use yii\data\ActiveDataProvider;
+use yii\web\Response;
 
 /**
  * SongController implements the CRUD actions for Song model.
@@ -49,15 +52,33 @@ class SongController extends Controller
     }
 
     /**
-     * Returns JSON format of all models.
-     * @return string
+     * Returns list in JSON of all Song models.
+     * @return array
      */
-    public function actionAllAsJson()
+    public function actionAll()
     {
         $this->response->format = \yii\web\Response::FORMAT_JSON;
 
         $provider = new ActiveDataProvider([
            'query' => Song::find()->select(['id', 'title', 'artist']),
+            'pagination' => false,
+        ]);
+
+        return $provider->getModels();
+    }
+
+    /**
+     * Returns list in JSON of matching-id Song models with lyrics.
+     * @param int $ids comma-delineated list of IDs
+     * @return array
+     */
+    public function actionLyrics($ids)
+    {
+        $this->response->format = \yii\web\Response::FORMAT_JSON;
+        $ids = explode(',', $ids);
+
+        $provider = new ActiveDataProvider([
+            'query' => Song::find()->select(['id', 'title', 'artist', 'lyrics'])->where(['in', 'id', $ids]),
             'pagination' => false,
         ]);
 
