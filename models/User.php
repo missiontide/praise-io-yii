@@ -1,6 +1,7 @@
 <?php
 
 namespace app\models;
+use Dotenv\Dotenv;
 
 class User extends \yii\base\BaseObject implements \yii\web\IdentityInterface
 {
@@ -92,6 +93,8 @@ class User extends \yii\base\BaseObject implements \yii\web\IdentityInterface
      */
     public function validatePassword($password)
     {
-        return env('ADMIN_PASS') === $password;
+        $dotenv = Dotenv::createImmutable('../');
+        $dotenv->load();
+        return $_ENV['ADMIN_PASS'] === $password;
     }
 }

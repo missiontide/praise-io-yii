@@ -1,10 +1,12 @@
 <?php
+$dotenv = Dotenv\Dotenv::createImmutable(__DIR__ . '/../');
+$dotenv->load();
 
 return [
     'class' => 'yii\db\Connection',
-    'dsn' => env('DB_DSN'),
-    'username' => env('DB_USERNAME'),
-    'password' => env('DB_PASSWORD'),
+    'dsn' => $_ENV['DB_DSN'],
+    'username' => $_ENV['DB_USERNAME'],
+    'password' => $_ENV['DB_PASSWORD'],
     'charset' => 'utf8',
 
     // Schema cache options (for production environment)

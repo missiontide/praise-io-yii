@@ -4,33 +4,31 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInitb94fa01a692889fd97a0cd489746b77e
+class ComposerStaticInit96336508cffcf4cc2d62de0b2b1d1663
 {
     public static $files = array (
         'a4a119a56e50fbb293281d9a48007e0e' => __DIR__ . '/..' . '/symfony/polyfill-php80/bootstrap.php',
         '6e3fae29631ef280660b3cdad06f25a8' => __DIR__ . '/..' . '/symfony/deprecation-contracts/function.php',
         '6124b4c8570aa390c21fafd04a26c69f' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/deep_copy.php',
-        '320cde22f66dd4f5d3fd621d3e88b98f' => __DIR__ . '/..' . '/symfony/polyfill-ctype/bootstrap.php',
         '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
+        '320cde22f66dd4f5d3fd621d3e88b98f' => __DIR__ . '/..' . '/symfony/polyfill-ctype/bootstrap.php',
         'e69f7f6ee287b969198c3c9d6777bd38' => __DIR__ . '/..' . '/symfony/polyfill-intl-normalizer/bootstrap.php',
         '8825ede83f2f289127722d4e842cf7e8' => __DIR__ . '/..' . '/symfony/polyfill-intl-grapheme/bootstrap.php',
-        '2cffec82183ee1cea088009cef9a6fc3' => __DIR__ . '/..' . '/ezyang/htmlpurifier/library/HTMLPurifier.composer.php',
         '7b11c4dc42b3b3023073cb14e519683c' => __DIR__ . '/..' . '/ralouphie/getallheaders/src/getallheaders.php',
         '0d59ee240a4cd96ddbb4ff164fccea4d' => __DIR__ . '/..' . '/symfony/polyfill-php73/bootstrap.php',
         'b6b991a57620e2fb6b2f66f03fe9ddc2' => __DIR__ . '/..' . '/symfony/string/Resources/functions.php',
+        '2cffec82183ee1cea088009cef9a6fc3' => __DIR__ . '/..' . '/ezyang/htmlpurifier/library/HTMLPurifier.composer.php',
         '25072dd6e2470089de65ae7bf11d3109' => __DIR__ . '/..' . '/symfony/polyfill-php72/bootstrap.php',
         'e3b2795a8a512b6083af088fb53afe6c' => __DIR__ . '/..' . '/codeception/codeception/functions.php',
         'f598d06aa772fa33d905e87be6398fb1' => __DIR__ . '/..' . '/symfony/polyfill-intl-idn/bootstrap.php',
         'def43f6c87e4f8dfd0c9e1b1bab14fe8' => __DIR__ . '/..' . '/symfony/polyfill-iconv/bootstrap.php',
         '2c102faa651ef8ea5874edb585946bce' => __DIR__ . '/..' . '/swiftmailer/swiftmailer/lib/swift_required.php',
         '180092cfc969a12e06f2132a203a3184' => __DIR__ . '/..' . '/codeception/verify/src/Codeception/function.php',
-        '9a4d9b2dc09f1ad978b28fc9a8420755' => __DIR__ . '/..' . '/yiithings/yii2-dotenv/src/autoload.php',
     );
 
     public static $prefixLengthsPsr4 = array (
         'y' => 
         array (
-            'yiithings\\dotenv\\' => 17,
             'yii\\swiftmailer\\' => 16,
             'yii\\gii\\' => 8,
             'yii\\faker\\' => 10,
@@ -79,10 +77,12 @@ class ComposerStaticInitb94fa01a692889fd97a0cd489746b77e
             'Psr\\EventDispatcher\\' => 20,
             'Psr\\Container\\' => 14,
             'Prophecy\\' => 9,
+            'PhpOption\\' => 10,
         ),
         'G' => 
         array (
             'GuzzleHttp\\Psr7\\' => 16,
+            'GrahamCampbell\\ResultType\\' => 26,
         ),
         'F' => 
         array (
@@ -108,10 +108,6 @@ class ComposerStaticInitb94fa01a692889fd97a0cd489746b77e
     );
 
     public static $prefixDirsPsr4 = array (
-        'yiithings\\dotenv\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/yiithings/yii2-dotenv/src',
-        ),
         'yii\\swiftmailer\\' => 
         array (
             0 => __DIR__ . '/..' . '/yiisoft/yii2-swiftmailer/src',
@@ -247,9 +243,17 @@ class ComposerStaticInitb94fa01a692889fd97a0cd489746b77e
         array (
             0 => __DIR__ . '/..' . '/phpspec/prophecy/src/Prophecy',
         ),
+        'PhpOption\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/phpoption/phpoption/src/PhpOption',
+        ),
         'GuzzleHttp\\Psr7\\' => 
         array (
             0 => __DIR__ . '/..' . '/guzzlehttp/psr7/src',
+        ),
+        'GrahamCampbell\\ResultType\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/graham-campbell/result-type/src',
         ),
         'Faker\\' => 
         array (
@@ -937,10 +941,10 @@ class ComposerStaticInitb94fa01a692889fd97a0cd489746b77e
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInitb94fa01a692889fd97a0cd489746b77e::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInitb94fa01a692889fd97a0cd489746b77e::$prefixDirsPsr4;
-            $loader->prefixesPsr0 = ComposerStaticInitb94fa01a692889fd97a0cd489746b77e::$prefixesPsr0;
-            $loader->classMap = ComposerStaticInitb94fa01a692889fd97a0cd489746b77e::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInit96336508cffcf4cc2d62de0b2b1d1663::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInit96336508cffcf4cc2d62de0b2b1d1663::$prefixDirsPsr4;
+            $loader->prefixesPsr0 = ComposerStaticInit96336508cffcf4cc2d62de0b2b1d1663::$prefixesPsr0;
+            $loader->classMap = ComposerStaticInit96336508cffcf4cc2d62de0b2b1d1663::$classMap;
 
         }, null, ClassLoader::class);
     }
