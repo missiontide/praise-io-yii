@@ -26,6 +26,7 @@ class SongController extends Controller
         return [
             // '*',                        // star allows all domains
             'http://localhost:3000',
+            'https://praise-io-vue.vercel.app/',
         ];
     }
     /**
