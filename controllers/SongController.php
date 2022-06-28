@@ -24,7 +24,7 @@ class SongController extends Controller
     public static function allowedDomains()
     {
         return [
-            // '*',                        // star allows all domains
+            '*',                        // star allows all domains
             'http://localhost:3000',
             'https://praise-io-vue.vercel.app/',
             'https://praise-io-qtzwi8snk-missiontide.vercel.app/',
